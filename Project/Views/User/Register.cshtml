@@ -1,0 +1,52 @@
+@model User
+
+@{
+    Layout = "_App_Layout";
+}
+
+<br><br>
+<div class="d-flex justify-content-center">
+    <h2>Register Page</h2>
+</div>
+
+<br>
+
+<form asp-action="Register">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group mt-5">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-5">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-5">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-5">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-5 d-flex justify-content-center">
+        <input type="submit" value="Register" class="btn btn-success mx-3" />
+    </div>
+
+    <p>Already have an account? <a asp-controller="User" asp-action="Login" style="text-decoration: none;">Login</a></p>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

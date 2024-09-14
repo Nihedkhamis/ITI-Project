@@ -1,0 +1,37 @@
+@model Category
+
+@{
+    Layout = "_App_Layout";
+}
+
+<br><br>
+
+<h1 class="d-flex justify-content-center">Ensure deleting the category</h1>
+
+<br><br>
+
+<form asp-action="Delete">
+
+    <div class="form-group">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <input asp-for="CategoryId" class="form-control" readonly/>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" readonly/>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control" readonly/>
+    </div>
+
+    <input type="submit" value="Delete the product" class="btn btn-success my-5" />
+    <a asp-controller="Category" asp-action="Index" class="btn btn-secondary">Cancel</a>
+    
+</form>

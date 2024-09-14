@@ -1,0 +1,47 @@
+
+<br><br>
+
+<h1 class="d-flex justify-content-center">Product Details</h1>
+
+<br><br>
+
+@model Product
+
+@{
+    Layout = "_App_Layout";
+}
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Product Id</th>
+      <td>@Model.ProductId</td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td>@Model.Title</td>
+    </tr>
+    <tr>
+      <th>Price in $</th>
+      <td>@Model.Price</td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td>@Model.Description</td>
+    </tr> 
+    <tr>
+      <th>Quantity</th>
+      <td>@Model.Quantity</td>
+    </tr> 
+    <tr>
+      <th>ImagePath</th>
+      <td>@Model.ImagePath</td>
+    </tr> 
+    <tr>
+      <th>Category</th>
+      <td>@Model.Category!.Name</td>
+    </tr> 
+  </tbody>
+</table>
+<br>
+<a asp-controller="Product" asp-action="Index" class="btn btn-success">Back</a>

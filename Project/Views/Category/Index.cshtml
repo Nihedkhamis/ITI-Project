@@ -1,0 +1,36 @@
+
+<br><br>
+<h1 class="d-flex justify-content-center">Categories Data</h1>
+
+<br><br>
+
+@model IEnumerable<Category>
+
+@{
+  Layout = "_Login_Layout";
+}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td  scope="row">@item.CategoryId</td>
+            <td>@item.Name</td>
+            <td>
+                <a asp-controller="Category" asp-action="ViewDetails" asp-route-id="@item.CategoryId" class="btn btn-info">View</a>
+                <a asp-controller="Category" asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-success">Edit</a>
+                <a asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+  <tfoot><a asp-controller="Category" asp-action="Create" class="btn btn-primary" style="position: absolute; bottom: 15px;">Add new category</a></tfoot>
+</table>

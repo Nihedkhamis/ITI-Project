@@ -1,0 +1,42 @@
+
+<br><br>
+<h1 class="d-flex justify-content-center">Products Data</h1>
+
+<br><br>
+
+@model IEnumerable<Product>
+
+@{
+  Layout = "_Login_Layout";
+}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Category</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td  scope="row">@item.ProductId</td>
+            <td>@item.Title</td>
+            <td>@item.Price$</td>
+            <td>@item.Quantity</td>
+            <td>@item.Category!.Name</td>
+            <td>
+                <a asp-controller="Product" asp-action="ViewDetails" asp-route-id="@item.ProductId" class="btn btn-info">View</a>
+                <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-success">Edit</a>
+                <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+  <tfoot><a asp-controller="Product" asp-action="Create" class="btn btn-primary" style="position: absolute; bottom: 15px;">Add new product</a></tfoot>
+</table>
